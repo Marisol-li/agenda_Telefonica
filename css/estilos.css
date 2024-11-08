@@ -1,0 +1,63 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    color: #f6508a;
+    margin-top: 0;
+}
+
+.underline {
+    background-color: #FFB6C1; /* Rosa pastel */
+    height: 10px;
+    width: 100%;
+    margin-top: -10px; /* Ajustar para estar justo debajo del título */
+}
+
+.new-contact {
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-contact input, .new-contact select, .new-contact button {
+    display: block;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ff8fb6;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f6508a;
+}
+
+button {
+    border-radius: 50%;
+    margin: 2px;
+    padding: 5px;
+    cursor: pointer;
+    
+}

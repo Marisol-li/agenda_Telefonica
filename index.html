@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Telefónica</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <h1 class="title">Agenda Telefónica</h1>
+            <div class="underline"></div>
+        </div>
+        <div class="new-contact">
+            <h2>Nuevo Contacto</h2>
+            <input type="text" v-model="newContact.name" placeholder="Nombre">
+            <input type="text" v-model="newContact.phone" placeholder="Teléfono">
+            <select v-model="newContact.category">
+                <option value="Familiar">Familiar</option>
+                <option value="Amistad">Amistad</option>
+                <option value="Laboral">Laboral</option>
+            </select>
+            <button @click="addContact">Agregar</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Categoría</th>
+                    <th>Mensajes</th>
+                    <th>Llamadas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(contact, index) in contacts" :key="index">
+                    <td><button @click="removeContact(index)">🗑️</button></td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.category }}</td>
+                    <td>
+                        <button @click="decrementMessages(index)">-</button>
+                        {{ contact.messages }}
+                        <button @click="incrementMessages(index)">+</button>
+                    </td>
+                    <td>
+                        <button @click="decrementCalls(index)">-</button>
+                        {{ contact.calls }}
+                        <button @click="incrementCalls(index)">+</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Contactos: {{ contacts.length }}</td>
+                    <td>Total de Mensajes: {{ totalMessages }}</td>
+                    <td>Total de Llamadas: {{ totalCalls }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
